@@ -21,7 +21,7 @@ module.exports = function () {
 
 
     this.Then('Validate data in textbox', () => {  
-        
+        browser.sleep(9000);
         browser.getCurrentUrl.then((result) => {
         expect(result).to.equal('#inbox');
         });            
