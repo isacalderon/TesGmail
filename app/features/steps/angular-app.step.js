@@ -1,16 +1,22 @@
-var angularPage = require('../../pages/angular-page')
+//var angularPage = require('../../pages/gmail-page')
+var expect = require('chai').expect
+const { Given, When, Then } = require('cucumber');
 
 module.exports = function () {
-    this.Given('I\'m on AngularJS page', () => {
-        browser.get('https://angularjs.org/');
+    this.Given('I\'m on Gmail page', function() {
+       browser.get('https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'); 
+    });
+    
+    this.When('Enter data in textbox',  function () {  
+        element(by.id('identifierId')).sendKeys('torredionisio9@gmail.com');      
+        element(by.id('identifierNext')).click();         
     });
 
-    this.When('Enter data in textbox', function () {
-        angularPage.setTextTodo('test');
-        angularPage.clickAddButton();
-    });
-
-    this.Then('Validate data in textbox', () => {
-        angularPage.validateData();
-    })
+    this.Then('Validate data in textbox', () => {  
+       // element(by.css('[name="password"]')).sendKeys('Cortin@33');
+        element(by.id('passwordNext')).click();
+        browser.getCurrentUrl.then((result) => {
+        expect(result).to.equal('#inbox');
+        });            
+    }); 
 }

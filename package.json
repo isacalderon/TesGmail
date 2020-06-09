@@ -1,6 +1,6 @@
 {
-  "name": "cucumberjs-protractor-reporter",
-  "version": "1.0.3",
+  "name": "Test-gmail-login",
+  "version": "1.0.0",
   "description": "protractor with Cucumber JS",
   "license": "ISC",
   "peerDependencies": {
