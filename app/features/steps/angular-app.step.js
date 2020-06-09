@@ -9,12 +9,19 @@ module.exports = function () {
     
     this.When('Enter data in textbox',  function () {  
         element(by.id('identifierId')).sendKeys('torredionisio9@gmail.com');      
-        element(by.id('identifierNext')).click();         
+        element(by.id('identifierNext')).click();   
+        
     });
 
+    this.When('Enter password',  function () {   
+        browser.sleep(2000);
+        element(by.name('password')).sendKeys('Cortin@33');
+        element(by.id('passwordNext')).click();   
+    });
+
+
     this.Then('Validate data in textbox', () => {  
-       // element(by.css('[name="password"]')).sendKeys('Cortin@33');
-        element(by.id('passwordNext')).click();
+        
         browser.getCurrentUrl.then((result) => {
         expect(result).to.equal('#inbox');
         });            

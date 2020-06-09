@@ -3,7 +3,7 @@ exports.config = {
     specs : ['features/*.feature'],
 
     capabilities : {
-        browserName : 'chrome'
+        browserName : 'firefox'
     },
     framework : 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
