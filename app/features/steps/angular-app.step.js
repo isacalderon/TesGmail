@@ -19,11 +19,22 @@ module.exports = function () {
         element(by.id('passwordNext')).click();   
     });
 
-
-    this.Then('Validate data in textbox', () => {  
-        browser.sleep(9000);
-        browser.getCurrentUrl.then((result) => {
-        expect(result).to.equal('#inbox');
-        });            
+    this.Then('Validate data in URL', () => {  
+        var EC = protractor.ExpectedConditions;
+        browser.wait(EC.visibilityOf($('#inbox')), 10000);              
     }); 
+
+    this.Given('navigate to button new', () =>{
+        browser.sleep(2000);
+        element(by.xpath("//span[@class='bog']")).click();
+        // var EC = protractor.ExpectedConditions;
+        // browser.wait(10000); 
+    });
+
+    // this.Then('Validate data in URL', () => {  
+    //     browser.sleep(9000);
+    //     browser.getCurrentUrl.then((result) => {
+    //     expect(result).to.contain('#inbox');
+    //     });            
+    // }); 
 }
