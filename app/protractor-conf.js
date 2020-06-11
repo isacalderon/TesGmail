@@ -1,10 +1,12 @@
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
     specs : ['features/*.feature'],
+ 
 
     capabilities : {
         browserName : 'firefox'
     },
+
     framework : 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
 
@@ -17,6 +19,7 @@ exports.config = {
      } ,
 
     directConnection : true,
+    
 
     cucumberOpts: {
         require: '**/**.js'

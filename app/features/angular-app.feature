@@ -5,9 +5,9 @@ Feature: Protractor and cucumber Gmail login
     When Enter password
     Then Validate data in URL
 
-  Scenario: I am on gmail now I send you an email
+  Scenario: I am on gmail now I'll send you an email
      Given navigate to button new
-    #  When Enter my data email and subject 
+   #  When Enter my data email and subject 
     #  When Insert hello world in the body and Send
     #  Then I wait the email in the box
 

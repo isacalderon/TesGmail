@@ -1,6 +1,8 @@
 //var angularPage = require('../../pages/gmail-page')
-var expect = require('chai').expect
+var expect = require('chai').expect;
+const assert = require('chai').assert;
 const { Given, When, Then } = require('cucumber');
+//const timeout = shared.constants.timeout;
 
 module.exports = function () {
     this.Given('I\'m on Gmail page', function() {
@@ -20,15 +22,24 @@ module.exports = function () {
     });
 
     this.Then('Validate data in URL', () => {  
-        var EC = protractor.ExpectedConditions;
-        browser.wait(EC.visibilityOf($('#inbox')), 10000);              
+         var EC = protractor.ExpectedConditions;
+         var button = element(by.css("div[gh='cm']"));
+         var isPresent = EC.presenceOf(button); 
+        // var isVisibility= EC.visibilityOf($('#inbox')); 
+         browser.wait(isPresent, 10000);   
+         assert.isTrue(Boolean(isPresent));          
+
     }); 
 
     this.Given('navigate to button new', () =>{
-        browser.sleep(2000);
-        element(by.xpath("//span[@class='bog']")).click();
-        // var EC = protractor.ExpectedConditions;
-        // browser.wait(10000); 
+        var EC = protractor.ExpectedConditions;
+        var button = element(by.css("div[gh='cm']"));
+        var isClickable = EC.elementToBeClickable(button);              
+        browser.wait(isClickable, 20000); //wait for an element to become clickable
+        button.click();  
+        let winToEmail= element(by.css("div[class='nH Hd']")); 
+        let isdis= expect(winToEmail.isDisplayed()).toBe(true);
+        assert.isTrue(Boolean(isdis));          
     });
 
     // this.Then('Validate data in URL', () => {  
