@@ -47,8 +47,8 @@ exports.setTextEmail = (data) => {
 exports.clickButton = (buttonElement) => {
     let EC = protractor.ExpectedConditions;
     var isClickable = EC.elementToBeClickable(buttonElement);              
-    browser.wait(buttonElement, 20000); //wait for an element to become clickable
-    button.click();  
+    browser.wait(isClickable, 20000); //wait for an element to become clickable
+    buttonElement.click();  
     browser.sleep(5000);
 }
 

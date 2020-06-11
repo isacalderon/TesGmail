@@ -9,12 +9,12 @@ Feature: Protractor and cucumber Gmail login
      Given navigate to button new
      When Enter the destinatary email the subject and message
      When I click the button Send
-    #  Then I wait the email in the box
+     Then I Validate that I send the email
 
-  #  Scenario: I am on gmail now I eliminate the draft
-  #    Given navigate to button new
-  #    When Enter my data email and subject 
-  #    When Insert hello world in the body and erase the draft
-  #    Then I hope the message deshacer
+   Scenario: I discard the draft
+     Given navigate to button new again
+     When Enter my data email and subject again
+     When I erase the draft
+     Then I hope the message 
 
  

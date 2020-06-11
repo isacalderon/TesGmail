@@ -51,20 +51,35 @@ module.exports = function () {
 
     this.When('I click the button Send', ()=>{
         
-        let EC2 = protractor.ExpectedConditions;
-       // var bSend = element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3'));
-        var bSend = element(by.css("div[class='og T-I-J3']"));
-        var isClickable = EC2.elementToBeClickable(bSend);              
-        browser.wait(isClickable, 20000); //wait for an element to become clickable
-        bSend.click();  
-        browser.sleep(5000);
-    
+        gmailPage.clickButton(element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3'))); 
+       
     }); 
 
-    // this.Then('Validate data in URL', () => {  
-    //     browser.sleep(9000);
-    //     browser.getCurrentUrl.then((result) => {
-    //     expect(result).to.contain('#inbox');
-    //     });            
-    // }); 
+     this.Then('I Validate that I send the email', () => {  
+        const messageBox = element(by.css('div.vh span.bAq')); 
+        let EC3 = protractor.ExpectedConditions;
+        browser.wait(EC3.visibilityOf(messageBox), 5000); 
+        // expect(messageBox.getText()).toEqual('Mensaje enviado.'); 
+        // browser.sleep(500);
+    }); 
+
+    this.Given('navigate to button new again', ()=>{
+        gmailPage.clickButton(element(by.css("div[gh='cm']")));
+    }); 
+
+    this.When('Enter my data email and subject again', ()=>{
+        gmailPage.writeEmail('torredionisio9@gmail.com', 'My First Test', 'Hello world 2!!');  
+    }); 
+
+    this.When('I erase the draft', ()=>{
+        gmailPage.clickButton(element(by.css("div[class='og T-I-J3']"))); 
+    });
+
+    this.Then('I hope the messaget', () => {  
+        const messageBox = element(by.css('div.vh span.bAq')); 
+        let EC3 = protractor.ExpectedConditions;
+        browser.wait(EC3.visibilityOf(messageBox), 5000); 
+        // expect(messageBox.getText()).toEqual('Mensaje enviado.'); 
+        // browser.sleep(500);
+    }); 
 }
