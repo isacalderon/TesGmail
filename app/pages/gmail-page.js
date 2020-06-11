@@ -1,12 +1,6 @@
 var expect = require('chai').expect
 
-const txtEmail = element(by.id('identifierId'));
-const nextButton = element(by.id('identifierNext'));
-const profileCbox = element(by.id('profileIdentifier')); 
 
-let subjectInput= by.css("input[name='subjectbox']");
-let toInput= by.css("textarea[name='to']"); 
-let bodyInput= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
 //const todoList = element(by.xpath('//ul//li//label//span'));
 
 exports.writeEmail=(to, subject, message)=>{
@@ -38,11 +32,6 @@ exports.isDisplayedtheElement=(data)=>{
     return assert.isTrue(Boolean(isDisplayed));
 }
 
-
-
-exports.setTextEmail = (data) => {
-    txtEmail.sendKeys(data);
-}
 
 exports.clickButton = (buttonElement) => {
     let EC = protractor.ExpectedConditions;

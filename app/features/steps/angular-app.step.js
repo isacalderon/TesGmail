@@ -2,7 +2,6 @@ var gmailPage = require('../../pages/gmail-page')
 var expect = require('chai').expect;
 const assert = require('chai').assert;
 const { Given, When, Then } = require('cucumber');
-//const timeout = shared.constants.timeout;
 
 module.exports = function () {
     this.Given('I\'m on Gmail page', function() {
@@ -32,14 +31,11 @@ module.exports = function () {
     }); 
 
     this.Given('navigate to button new', () =>{
-        let EC = protractor.ExpectedConditions;
-        var button = element(by.css("div[gh='cm']"));
-        var isClickable = EC.elementToBeClickable(button);              
-        browser.wait(isClickable, 20000); //wait for an element to become clickable
-        button.click();  
-        browser.sleep(5000);
+         
+         gmailPage.clickButton(element(by.css("div[gh='cm']"))); 
+         let EC2 = protractor.ExpectedConditions;
          let winToEmail= element(by.css("div[class='nH Hd']")); 
-         browser.wait(EC.visibilityOf(winToEmail), 5000);
+         browser.wait(EC2.visibilityOf(winToEmail), 5000);
         //  let isdis= expect(winToEmail.isDisplayed()).toBe(true);
         //  assert.isTrue(Boolean(isdis));          
     });
@@ -59,8 +55,9 @@ module.exports = function () {
         const messageBox = element(by.css('div.vh span.bAq')); 
         let EC3 = protractor.ExpectedConditions;
         browser.wait(EC3.visibilityOf(messageBox), 5000); 
-        // expect(messageBox.getText()).toEqual('Mensaje enviado.'); 
-        // browser.sleep(500);
+        messageBox.getText().then((result) => {
+            expect(result).to.equal('Mensaje enviado.');
+        })
     }); 
 
     this.Given('navigate to button new again', ()=>{
@@ -75,11 +72,12 @@ module.exports = function () {
         gmailPage.clickButton(element(by.css("div[class='og T-I-J3']"))); 
     });
 
-    this.Then('I hope the messaget', () => {  
-        const messageBox = element(by.css('div.vh span.bAq')); 
+    this.Then('I hope the message', () => {  
+        let messageDraft = element(by.css('div.vh span.bAq')); 
         let EC3 = protractor.ExpectedConditions;
-        browser.wait(EC3.visibilityOf(messageBox), 5000); 
-        // expect(messageBox.getText()).toEqual('Mensaje enviado.'); 
-        // browser.sleep(500);
+        browser.wait(EC3.visibilityOf(messageDraft), 5000);
+        messageDraft.getText().then((result) => {
+            expect(result).to.equal('Fake message');
+        }) 
     }); 
 }
