@@ -50,22 +50,10 @@ module.exports = function () {
     }); 
 
     this.When('I click the button Send', ()=>{
-        //let bSend= element( by.cssContainingText('T-I J-J5-Ji aoO v7 T-I-atl L3', 'Enviar ‪(Ctrl-Enter)‬')); 
-        //let bSend= element(by.xpath("//*contains(@data-tooltip,'Enviar ‪(Ctrl-Enter)‬')")); 
-        //let bSend= element(by.css("div[class='og T-I-J3']")); 
-        // draft div.J-J5-Ji.J-Z-I-Kv-H
-         
-        // browser.wait(element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3')), 5000).Then(() => {
-        //     return browser.findElement();
-        // })
-        // .then((el) => {
-        //     return el.click();
-        // })
-        // .then(() => {
-        //     return browser.sleep(5000);
-        // });
+        
         let EC2 = protractor.ExpectedConditions;
-        var bSend = element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3'));
+       // var bSend = element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3'));
+        var bSend = element(by.css("div[class='og T-I-J3']"));
         var isClickable = EC2.elementToBeClickable(bSend);              
         browser.wait(isClickable, 20000); //wait for an element to become clickable
         bSend.click();  

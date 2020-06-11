@@ -44,8 +44,12 @@ exports.setTextEmail = (data) => {
     txtEmail.sendKeys(data);
 }
 
-exports.clickNextButton = () => {
-    nextButton.click();
+exports.clickButton = (buttonElement) => {
+    let EC = protractor.ExpectedConditions;
+    var isClickable = EC.elementToBeClickable(buttonElement);              
+    browser.wait(buttonElement, 20000); //wait for an element to become clickable
+    button.click();  
+    browser.sleep(5000);
 }
 
 exports.validateData=()=>{
