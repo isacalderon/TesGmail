@@ -1,10 +1,10 @@
-# protractor-cucumber-application
+# Test-Gmail-with-protractor-cucumber
 - step 1  : Global Protractor Setup <br />
 <b>install protractor :</b> npm i -g protractor<br />
 - step 2  : Local Setup <br />
 clone the application <br />
-git clone https://github.com/amitcprabhu/protractor-cucumber-application.git <br />
-cd protractor-cucumber-application <br />
+git clone https://github.com/isacalderon/TesGmail.git<br />
+cd 
 npm install
 - step 3  : Start Application <br />
 <b>update webdriver :</b> open console and run command webdriver-manager update<br />
