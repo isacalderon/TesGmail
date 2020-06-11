@@ -2,6 +2,8 @@
 
 The project logging in the Email, then it creates an email send and finally, it creates other but ended up discarding the mail, I upload an video to show us the process.
 
+https://github.com/isacalderon/TestGmail/blob/master/t1PFopQQyE.mp4
+
 - <b>Step 1</b>  : Global Protractor Setup if you had installed, you would continue with the next step.<br />
 <b>install protractor :</b> npm i -g protractor<br />
 - <b>Step 2</b>  : Local Setup <br />
