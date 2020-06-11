@@ -53,9 +53,10 @@ module.exports = function () {
         let subjectInput= by.css("input[name='subjectbox']");
         browser.findElement(subjectInput).sendKeys('My First Test'); 
         browser.sleep(1000);
-        // let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
-        // browser.findElement(body).sendKeys('Hello world!!');
-        // browser.sleep(3000);
+        
+        let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
+        browser.findElement(body).sendKeys('Hello world!!');
+        browser.sleep(3000);
     }); 
 
     // this.Then('Validate data in URL', () => {  
