@@ -3,7 +3,7 @@
 <b>install protractor :</b> npm i -g protractor<br />
 - <b>Step 2</b>  : Local Setup <br />
 clone the application <br />
-git clone https://github.com/isacalderon/TesGmail.git<br />
+git clone https://github.com/isacalderon/TestGmail.git<br />
 cd TestGmail
 npm install
 - <b>Step 3</b>  : Start Application. Firstly open the console, don't care for the path, just run the next command <br />
