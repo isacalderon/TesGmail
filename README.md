@@ -1,4 +1,4 @@
-# Test-Gmail-with-protractor-cucumber
+# Test Gmail with Protractor and Cucumber
 - <b>Step 1</b>  : Global Protractor Setup if you had installed, you would continue with the next step.<br />
 <b>install protractor :</b> npm i -g protractor<br />
 - <b>Step 2</b>  : Local Setup <br />
