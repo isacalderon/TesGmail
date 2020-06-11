@@ -32,15 +32,31 @@ module.exports = function () {
     }); 
 
     this.Given('navigate to button new', () =>{
-        var EC = protractor.ExpectedConditions;
+        let EC = protractor.ExpectedConditions;
         var button = element(by.css("div[gh='cm']"));
         var isClickable = EC.elementToBeClickable(button);              
         browser.wait(isClickable, 20000); //wait for an element to become clickable
         button.click();  
-        let winToEmail= element(by.css("div[class='nH Hd']")); 
-        let isdis= expect(winToEmail.isDisplayed()).toBe(true);
-        assert.isTrue(Boolean(isdis));          
+        browser.sleep(5000);
+         let winToEmail= element(by.css("div[class='nH Hd']")); 
+         browser.wait(EC.visibilityOf(winToEmail), 5000);
+        //  let isdis= expect(winToEmail.isDisplayed()).toBe(true);
+        //  assert.isTrue(Boolean(isdis));          
     });
+
+    this.When('Enter the destinatary email and the subject', ()=>{
+        //gmailPage.putHeaderEmail('torredionisio9@gmail.com', 'My First Test');  
+        let toInput= by.css("textarea[name='to']");         
+        browser.findElement(toInput).sendKeys('torredionisio9@gmail.com');
+        browser.sleep(1000); 
+   
+        let subjectInput= by.css("input[name='subjectbox']");
+        browser.findElement(subjectInput).sendKeys('My First Test'); 
+        browser.sleep(1000);
+        // let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
+        // browser.findElement(body).sendKeys('Hello world!!');
+        // browser.sleep(3000);
+    }); 
 
     // this.Then('Validate data in URL', () => {  
     //     browser.sleep(9000);
