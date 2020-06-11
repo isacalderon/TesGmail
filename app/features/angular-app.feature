@@ -7,8 +7,8 @@ Feature: Protractor and cucumber Gmail login
 
   Scenario: I am on gmail now I'll send you an email
      Given navigate to button new
-     When Enter the destinatary email and the subject 
-    #  When Insert hello world in the body and Send
+     When Enter the destinatary email the subject and message
+     When I click the button Send
     #  Then I wait the email in the box
 
   #  Scenario: I am on gmail now I eliminate the draft

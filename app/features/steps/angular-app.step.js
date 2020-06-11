@@ -44,19 +44,33 @@ module.exports = function () {
         //  assert.isTrue(Boolean(isdis));          
     });
 
-    this.When('Enter the destinatary email and the subject', ()=>{
+    this.When('Enter the destinatary email the subject and message', ()=>{
         gmailPage.writeEmail('torredionisio9@gmail.com', 'My First Test', 'Hello world!!');  
-        // let toInput= by.css("textarea[name='to']");         
-        // browser.findElement(toInput).sendKeys('torredionisio9@gmail.com');
-        // browser.sleep(1000); 
-   
-        // let subjectInput= by.css("input[name='subjectbox']");
-        // browser.findElement(subjectInput).sendKeys('My First Test'); 
-        // browser.sleep(1000);
 
-        // let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
-        // browser.findElement(body).sendKeys('Hello world!!');
-        // browser.sleep(3000);
+    }); 
+
+    this.When('I click the button Send', ()=>{
+        //let bSend= element( by.cssContainingText('T-I J-J5-Ji aoO v7 T-I-atl L3', 'Enviar ‪(Ctrl-Enter)‬')); 
+        //let bSend= element(by.xpath("//*contains(@data-tooltip,'Enviar ‪(Ctrl-Enter)‬')")); 
+        //let bSend= element(by.css("div[class='og T-I-J3']")); 
+        // draft div.J-J5-Ji.J-Z-I-Kv-H
+         
+        // browser.wait(element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3')), 5000).Then(() => {
+        //     return browser.findElement();
+        // })
+        // .then((el) => {
+        //     return el.click();
+        // })
+        // .then(() => {
+        //     return browser.sleep(5000);
+        // });
+        let EC2 = protractor.ExpectedConditions;
+        var bSend = element(by.css('div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3'));
+        var isClickable = EC2.elementToBeClickable(bSend);              
+        browser.wait(isClickable, 20000); //wait for an element to become clickable
+        bSend.click();  
+        browser.sleep(5000);
+    
     }); 
 
     // this.Then('Validate data in URL', () => {  
