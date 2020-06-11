@@ -1,4 +1,4 @@
-//var angularPage = require('../../pages/gmail-page')
+var gmailPage = require('../../pages/gmail-page')
 var expect = require('chai').expect;
 const assert = require('chai').assert;
 const { Given, When, Then } = require('cucumber');
@@ -45,18 +45,18 @@ module.exports = function () {
     });
 
     this.When('Enter the destinatary email and the subject', ()=>{
-        //gmailPage.putHeaderEmail('torredionisio9@gmail.com', 'My First Test');  
-        let toInput= by.css("textarea[name='to']");         
-        browser.findElement(toInput).sendKeys('torredionisio9@gmail.com');
-        browser.sleep(1000); 
+        gmailPage.writeEmail('torredionisio9@gmail.com', 'My First Test', 'Hello world!!');  
+        // let toInput= by.css("textarea[name='to']");         
+        // browser.findElement(toInput).sendKeys('torredionisio9@gmail.com');
+        // browser.sleep(1000); 
    
-        let subjectInput= by.css("input[name='subjectbox']");
-        browser.findElement(subjectInput).sendKeys('My First Test'); 
-        browser.sleep(1000);
-        
-        let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
-        browser.findElement(body).sendKeys('Hello world!!');
-        browser.sleep(3000);
+        // let subjectInput= by.css("input[name='subjectbox']");
+        // browser.findElement(subjectInput).sendKeys('My First Test'); 
+        // browser.sleep(1000);
+
+        // let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
+        // browser.findElement(body).sendKeys('Hello world!!');
+        // browser.sleep(3000);
     }); 
 
     // this.Then('Validate data in URL', () => {  

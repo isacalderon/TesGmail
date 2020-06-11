@@ -9,19 +9,20 @@ let toInput= by.css("textarea[name='to']");
 let bodyInput= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
 //const todoList = element(by.xpath('//ul//li//label//span'));
 
-exports.putHeaderEmail=(to, subject)=>{
+exports.writeEmail=(to, subject, message)=>{
     let toInput= by.css("textarea[name='to']");         
     browser.findElement(toInput).sendKeys(to);
     browser.sleep(1000); 
    
      let subjectInput= by.css("input[name='subjectbox']");
      browser.findElement(subjectInput).sendKeys(subject); 
-     //browser.sleep(1000); 
+     browser.sleep(1000); 
 
-    //  let bodyInput= by.css("div[class='Am Al editable LW-avf tS-tW']");
-    //  browser.findElement(bodyInput).sendKeys(message); 
+    let body= by.css("div[class='Am Al editable LW-avf tS-tW']"); 
+    browser.findElement(body).sendKeys(message);
      
-    return browser.sleep(1000); 
+     
+    return browser.sleep(3000); 
 
 }
 
